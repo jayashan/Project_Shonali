@@ -10,7 +10,7 @@
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                   <!-- <div class="noti__item js-item-menu">
+                                   <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-comment-more"></i>
                                         <span class="quantity">1</span>
                                         <div class="mess-dropdown js-dropdown">
@@ -120,14 +120,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>-->
+                                </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
                                             <img src="images/icon/admin.png" alt="Peiris" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Peiris</a>
+                                            <a class="js-acc-btn" href="#"></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -138,9 +138,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Peiris</a>
+                                                        <a href="#">{{ Auth::user()->name }}</a>
                                                     </h5>
-                                                    <span class="email">Peiris@gmail.com</span>
+                                                    <span class="email">{{ Auth::user()->email }}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -158,8 +158,9 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <a href="{{ route('signout') }}">
+                                                    <i class="zmdi zmdi-power"></i>Logout
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
