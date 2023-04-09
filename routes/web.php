@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LecturesController;
+use App\Http\Controllers\AdminHomeController;
 
 
 /*
@@ -24,9 +25,9 @@ Route::get('/', function () {
     return view('pages.home');
 });
 //admin page
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+// Route::get('/admin', function () {
+//     return view('admin.index');
+// });
 //teacher's page
 Route::get('/teacher', function () {
     return view('admin.teacher');
@@ -113,3 +114,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 
 Route::resource('lectures',LecturesController::class);
+
+
+Route::get('admin',[AdminHomeController::class,'Index']);
