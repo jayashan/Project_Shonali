@@ -21,7 +21,7 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="index.html">Teachers</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Dashboard 2</a>

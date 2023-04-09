@@ -1,7 +1,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/school_logo.png" alt="School Online System" />
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -9,12 +9,10 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-
-                            <a href="{{url('/admin')}}">
-                                <i class=""></i>Dashboard</a></a>
-                          <!--  <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="{{url('/lectures')}}">Teachers</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Dashboard 2</a>
@@ -25,53 +23,29 @@
                                 <li>
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
-                            </ul>-->
+                            </ul>
                         </li>
                         <li>
-                            <a href="{{url('/staff')}}">
-                                <i class=""></i>Teachers</a>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
-                            <a href="{{url('/student')}}">
-                                <i class=""></i>Students</a>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="{{url('/employee')}}">
-                                <i class=""></i>Employees</a>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
-                        <a href="{{url('/class')}}">
-                                <i class=""></i>Classes</a>
+                            <a href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                         <li>
-                            <a href="{{url('/subject')}}">
-                                <i class=""></i>Subjects</a>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
-                        <li>
-                            <a href="{{url('/fee')}}">
-                                <i class=""></i>Fees</a>
-                        </li>
-                        <li>
-                            <a href="{{url('/salary')}}">
-                                <i class=""></i>Salary</a>
-                        </li>
-                        <li>
-                            <a href="{{url('/attendance')}}">
-                                <i class=""></i>Attendance</a>
-                        </li>
-                        <li>
-                            <a href="{{url('/timetable')}}">
-                                <i class=""></i>Time Table</a>
-                        </li>
-                        <li>
-                            <a href="{{url('/exam')}}">
-                                <i class=""></i>Exams</a>
-                        </li>
-                        <li>
-                            <a href="{{url('/report')}}">
-                                <i class=""></i>Reports</a>
-                        </li>
-                       <!-- <li class="has-sub">
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -125,7 +99,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>-->
+                    </ul>
                 </nav>
             </div>
         </aside>

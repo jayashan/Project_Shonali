@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\LecturesController;
 
 
 /*
@@ -28,7 +29,7 @@ Route::get('/admin', function () {
 });
 //teacher's page
 Route::get('/teacher', function () {
-    return view('pages.teacher');
+    return view('admin.teacher');
 });
 // student page
 Route::get('/student', function () {
@@ -109,3 +110,6 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout'); 
+
+
+Route::resource('lectures',LecturesController::class);
