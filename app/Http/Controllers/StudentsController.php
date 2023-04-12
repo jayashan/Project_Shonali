@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Lecture;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
-
-class LecturesController extends Controller
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,10 @@ class LecturesController extends Controller
      */
     public function index()
     {
-        $lectures=Lecture::latest()->paginate(5);
-        return view('admin.teacher',compact('lectures'))
-            ->with('i',(request()->input('page',1)-1)*5);
-
+        //
+        $students=Student::latest()->paginate(5);
+        return view('admin.student',compact('students'))
+                ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -29,7 +28,7 @@ class LecturesController extends Controller
     public function create()
     {
         //
-        return view('admin.teacher');
+        return view('admin/student');
     }
 
     /**
@@ -42,7 +41,7 @@ class LecturesController extends Controller
     {
         //
         $request->validate([
-            'lecture_id'=>'required',
+            'student_id'=>'required',
             'fname'=>'required',
             'lname'=>'required',
             'email'=>'required',
@@ -52,7 +51,7 @@ class LecturesController extends Controller
             'address2'=>'required',
         ]);
 
-        Lecture::create($request->all());
+        Student::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -60,22 +59,22 @@ class LecturesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Lecture  $lecture
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Lecture $lecture)
+    public function show(Student $student)
     {
         //
-        return view('admin.teacher',compact('lecture'));
+        return view('admin.student',compact('student'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Lecture  $lecture
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lecture $lecture)
+    public function edit(Student $student)
     {
         //
     }
@@ -84,10 +83,10 @@ class LecturesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Lecture  $lecture
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lecture $lecture)
+    public function update(Request $request, Student $student)
     {
         //
     }
@@ -95,10 +94,10 @@ class LecturesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Lecture  $lecture
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lecture $lecture)
+    public function destroy(Student $student)
     {
         //
     }

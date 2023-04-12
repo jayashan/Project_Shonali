@@ -15,7 +15,7 @@
                                     <a href="{{url('/lectures')}}">Teachers</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Dashboard 2</a>
+                                    <a href="{{url('/students')}}">Students</a>
                                 </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
