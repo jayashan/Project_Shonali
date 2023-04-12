@@ -43,7 +43,7 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>-</h2>
+                                                <h2>{{$No_Of_Students}}</h2>
                                                 <span>No Of Students</span>
                                             </div>
                                         </div>
