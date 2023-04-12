@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\parent;
+use App\Models\classroom;
 use Illuminate\Http\Request;
 
-class ParentController extends Controller
+class ClassRoomsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,10 @@ class ParentController extends Controller
     public function index()
     {
         //
-        $parent=parent::latest()->paginate(5);
-        return view('admin.parent',compact('parent'))
-            ->with('i',(request()->input('page',1)-1)*5);
+
+        $classrooms=classroom::latest()->paginate(5);
+        return view('admin.class',compact('classes'))
+                ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -28,7 +29,7 @@ class ParentController extends Controller
     public function create()
     {
         //
-        return view('admin.parent');
+        return view('admin/classroom');
     }
 
     /**
@@ -40,15 +41,17 @@ class ParentController extends Controller
     public function store(Request $request)
     {
         //
+
         $request->validate([
-            'parent_id'=>'required',
-            'student_number'=>'required',
-            'phone_number'=>'required',
-            'password'=>'required',
+            'class_number'=>'required',
+            'section'=>'required',
+            'grade'=>'required',
+            'lecture_id'=>'required',
            
+          
         ]);
 
-        parent::create($request->all());
+        Classroom::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -56,22 +59,22 @@ class ParentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\parent  $parent
+     * @param  \App\Models\classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function show(parent $parent)
+    public function show(classroom $classroom)
     {
         //
-        return view('admin.parent',compact('parent'));
+        return view('admin.classroom',compact('classroom'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\parent  $parent
+     * @param  \App\Models\classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function edit(parent $parent)
+    public function edit(classroom $classroom)
     {
         //
     }
@@ -80,10 +83,10 @@ class ParentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\parent  $parent
+     * @param  \App\Models\classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, parent $parent)
+    public function update(Request $request, classroom $classroom)
     {
         //
     }
@@ -91,10 +94,10 @@ class ParentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\parent  $parent
+     * @param  \App\Models\classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function destroy(parent $parent)
+    public function destroy(classroom $classroom)
     {
         //
     }

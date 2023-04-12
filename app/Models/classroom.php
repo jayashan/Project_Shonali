@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class parent extends Model
+class classroom extends Model
 {
     use HasFactory;
+
     protected $fillable=[
-        'parent_id','student_number','phone_number','password'
+        'class_number','section','grade','lecture_id'
+
     ];
 }

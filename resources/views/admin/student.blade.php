@@ -27,8 +27,12 @@
                                       <form class="row g-3" action="{{route('students.store')}}" method="POST">
                                         @csrf
                                           <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Student ID</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="L00-" name="student_id">
+                                            <label for="inputAddress" class="form-label">Student Number</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="0000" name="student_number">
+                                          </div>
+                                          <div class="col-md-6">
+                                            <label for="inputAddress" class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="0000" name="email">
                                           </div>
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">First Name</label>
@@ -38,14 +42,6 @@
                                             <label for="inputAddress" class="form-label">Last Name</label>
                                             <input type="text" class="form-control" id="inputAddress" placeholder="Last Name" name="lname">
                                           </div>
-                                          <div class="col-md-6">
-                                            <label for="inputEmail4" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4" name="email">
-                                          </div>
-                                          <div class="col-md-6">
-                                            <label for="inputPassword4" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="inputPassword4" name ="password">
-                                          </div>
                                           <div class="col-md-4">
                                             <label for="inputState" class="form-label">Gender</label>
                                             <select id="inputState" class="form-select" name="gender">
@@ -54,13 +50,31 @@
                                               <option>Female</option>
                                             </select>
                                           </div>
+                                          <div class="col-md-6">
+                                            <label for="inputAddress" class="form-label">Date of Birth</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="--/--/----" name="dob">
+                                          </div>
+                                         
+                                          <div class="col-md-6">
+                                            <label for="inputEmail4" class="form-label">Enroll ID</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="0000" name="enroll_id">
+                                          </div>
+                                          <div class="col-md-6">
+                                            <label for="inputAddress" class="form-label">Phone Number</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="077..." name="phone_number">
+                                          </div>
+                                          <div class="col-md-6">
+                                            <label for="inputPassword4" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="inputPassword4" name ="password">
+                                          </div>
+                                        
                                           <div class="col-12">
-                                            <label for="inputAddress" class="form-label">Address 1</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address1">
+                                            <label for="inputAddress" class="form-label">Active</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="A/N" name="is_active">
                                           </div>
                                           <div class="col-12">
-                                            <label for="inputAddress2" class="form-label">Address 2</label>
-                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="address2">
+                                            <label for="inputAddress2" class="form-label">Join Date</label>
+                                            <input type="text" class="form-control" id="inputAddress2" placeholder="--/--/----" name="join_date">
                                           </div>
                                           <div class="col-12">
                                             <div class="form-check">
@@ -85,13 +99,17 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Student ID</th>
+                                                <th>Student Number</th>
+                                                <th>Enroll ID</th>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
-                                                <th class="text-right">Email</th>
                                                 <th class="text-right">Gender</th>
-                                                <th class="text-right">Address1</th>
-                                                <th class="text-right">Address2</th>
+                                                <th class="text-right">Date of Birth</th>
+                                                <th class="text-right">Email</th>
+                                                <th class="text-right">Phone Number</th>
+                                                <th class="text-right">Password</th>                
+                                                <th class="text-right">Active</th>
+                                                <th class="text-right">Join Date</th>
                                                 <th width="280px">Action</th>
                                             </tr>
                                         </thead>
@@ -100,13 +118,17 @@
                                           @foreach ($students as $student)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td>{{ $student->student_id }}</td>
+                                                <td>{{ $student->student_number }}</td>
+                                                <td>{{ $student->enroll_id }}</td>
                                                 <td>{{ $student->fname }}</td>
                                                 <td>{{ $student->lname }}</td>
-                                                <td>{{ $student->email }}</td>
                                                 <td>{{ $student->gender }}</td>
-                                                <td>{{ $student->address1 }}</td>
-                                                <td>{{ $student->address2 }}</td>
+                                                <td>{{ $student->dob }}</td>
+                                                <td>{{ $student->email }}</td>
+                                                <td>{{ $student->phone_number }}</td>
+                                                <td>{{ $student->password }}</td>                                               
+                                                <td>{{ $student->is_active }}</td>
+                                                <td>{{ $student->join_date }}</td>
                                                 <td></td>
                                             </tr>
                                             @endforeach

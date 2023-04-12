@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class attendance extends Model
 {
     use HasFactory;
 
     protected $fillable=[
-        'student_number','enroll_id','fname','lname','gender','dob','email','phone_number','password','is_active','join_date'
+        'user_id','date','status'
 
     ];
+
+
+    
 }

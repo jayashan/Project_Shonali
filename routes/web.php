@@ -5,6 +5,9 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LecturesController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\ParentController;
+use App\Http\Controllers\AttendancesController;
+use App\Http\Controllers\ClassRoomsController;
 
 
 /*
@@ -116,5 +119,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::resource('lectures',LecturesController::class);
 Route::resource('students',StudentsController::class);
-
+Route::resource('parents',ParentController::class);
+Route::resource('attendances',AttendancesController::class);
+Route::resource('classes',ClassRoomsController::class);
 Route::get('admin',[AdminHomeController::class,'Index']);

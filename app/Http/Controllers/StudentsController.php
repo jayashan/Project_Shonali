@@ -41,14 +41,18 @@ class StudentsController extends Controller
     {
         //
         $request->validate([
-            'student_id'=>'required',
+            'student_number'=>'required',
+            'enroll_id'=>'required',
             'fname'=>'required',
             'lname'=>'required',
-            'email'=>'required',
-            'password'=>'required',
             'gender'=>'required',
-            'address1'=>'required',
-            'address2'=>'required',
+            'dob'=>'required',
+            'email'=>'required',
+            'phone_number'=>'required',
+            'password'=>'required',
+            'is_active'=>'required',
+            'join_date'=>'required',
+          
         ]);
 
         Student::create($request->all());

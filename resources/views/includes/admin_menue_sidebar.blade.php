@@ -18,7 +18,7 @@
                                     <a href="{{url('/students')}}">Students</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <a href={{url('/parents')}}">Parents</a>
                                 </li>
                                 <li>
                                     <a href="index4.html">Dashboard 4</a>
@@ -26,14 +26,14 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
+                            <a href="{{url('/attendances')}}">
+                                <i class="fas fa-chart-bar"></i>Attendance</a>
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                            <a href="{{url('/classrooms')}}">
+                                <i class="fas fa-table"></i>Class Rooms</a>
                         </li>
-                        <li>
+                        <li> 
                             <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\student;
+use App\Models\attendance;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class AttendancesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student=student::latest()->paginate(5);
-        return view('admin.student',compact('student'))
-            ->with('i',(request()->input('page',1)-1)*5);
+        //
+        $attendances=attendance::latest()->paginate(5);
+        return view('admin.attendance',compact('attendances'))
+                ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -26,7 +27,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('admin.student');
+        //
+        return view('admin/attendance');
     }
 
     /**
@@ -39,22 +41,14 @@ class StudentController extends Controller
     {
         //
         $request->validate([
-            'student_number'=>'required',
-            'enroll_id'=>'required',
-            'fname'=>'required',
-            'lname'=>'required',
-            'gender'=>'required',
-            'dob'=>'required',
-            'email'=>'required',
-            'phone_number'=>'required',
-            'password'=>'required',
-            'is_active'=>'required',
-            'join_date'=>'required',
-          
+            'user_id'=>'required',
+            'date'=>'required',
+            'status'=>'required',
             
+          
         ]);
 
-        student::create($request->all());
+        Attendance::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -62,22 +56,22 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function show(attendance $attendance)
     {
         //
-        return view('admin.student',compact('student'));
+        return view('admin.attendance',compact('attendance'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function edit(student $student)
+    public function edit(attendance $attendance)
     {
         //
     }
@@ -86,10 +80,10 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, student $student)
+    public function update(Request $request, attendance $attendance)
     {
         //
     }
@@ -97,10 +91,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(student $student)
+    public function destroy(attendance $attendance)
     {
         //
     }
