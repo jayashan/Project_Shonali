@@ -94,7 +94,7 @@ class SubjectController extends Controller
 
         $subject->update($request->all());
 
-        return redirect()->route('admin.subjects')
+        return redirect()->route('subjects.index')
                         ->with('success','subject updated successfully');
     }
 

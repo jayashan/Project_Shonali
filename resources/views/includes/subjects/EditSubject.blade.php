@@ -13,17 +13,17 @@
                 <div class="modal-body">
                 <div class="form-group">
                     <label>Subject Code</label>
-                    <input type="text" name="subject_code" class="form-control" placeholder="Subject Code" value="">
+                    <input type="text" name="subject_code" class="form-control" placeholder="Subject Code" value="{{$subject->subject_code}}">
                 </div>
 
                 <div class="form-group">
                     <label>Subject Name</label>
-                        <input type="text" name="subject_name" class="form-control" placeholder="Subject Name" value="">
+                        <input type="text" name="subject_name" class="form-control" placeholder="Subject Name" value="{{$subject->subject_name}}">
                     </div>
 
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" name="description" class="form-control" placeholder="Description" value="">
+                        <input type="text" name="description" class="form-control" placeholder="Description" value="{{$subject->description}}">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button> 
                 </div>
