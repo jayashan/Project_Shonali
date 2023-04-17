@@ -24,6 +24,8 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
             $table->string('password');
+            $table->string('address1');
+            $table->string('address2');
             $table->string('is_active');
             $table->string('join_date');
             $table->timestamps();

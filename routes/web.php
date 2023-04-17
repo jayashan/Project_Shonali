@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\AttendancesController;
 use App\Http\Controllers\ClassRoomsController;
+use App\Http\Controllers\SubjectController;
 
 
 /*
@@ -108,6 +109,9 @@ Route::get('/students', function () {
   return view('admin.student');
 });
 
+Route::get('/subjects', function () {
+    return view('admin.subjects');
+});
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
@@ -122,4 +126,6 @@ Route::resource('students',StudentsController::class);
 Route::resource('parents',ParentController::class);
 Route::resource('attendances',AttendancesController::class);
 Route::resource('classes',ClassRoomsController::class);
+Route::resource('subjects',SubjectController::class);
+
 Route::get('admin',[AdminHomeController::class,'Index']);

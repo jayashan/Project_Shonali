@@ -18,10 +18,10 @@
                                     <a href="{{url('/students')}}">Students</a>
                                 </li>
                                 <li>
-                                    <a href={{url('/parents')}}">Parents</a>
+                                    <a href="{{url('/parents')}}">Parents</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <a href="{{url('/subjects')}}">Subjects</a>
                                 </li>
                             </ul>
                         </li>
