@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeedetailTable extends Migration
+class CreateFeedetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFeedetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('feedetail', function (Blueprint $table) {
+        Schema::create('feedetails', function (Blueprint $table) {
             $table->id();
             $table->string('fee_id')->unique();
             $table->string('record_number')->unique();
@@ -33,6 +33,6 @@ class CreateFeedetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feedetail');
+        Schema::dropIfExists('feedetails');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\enrollment;
+use App\Models\enquiry;
 use Illuminate\Http\Request;
 
-class EnrollmentController extends Controller
+class EnquiriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,11 @@ class EnrollmentController extends Controller
     public function index()
     {
         //
-        $enrollment=enrollment::latest()->paginate(5);
-        return view('admin.enrollment',compact('enrollment'))
-            ->with('i',(request()->input('page',1)-1)*5);
+
+                   
+ $enquiries=enquiry::latest()->paginate(5);
+ return view('admin.enquiry',compact('enquiries'))
+     ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -28,7 +30,7 @@ class EnrollmentController extends Controller
     public function create()
     {
         //
-        return view('admin.enrollment');
+        return view('admin.enquiry');
     }
 
     /**
@@ -41,15 +43,16 @@ class EnrollmentController extends Controller
     {
         //
         $request->validate([
-            'enroll_id'=>'required',
-            'fname'=>'required',
-            'lname'=>'required',
+            'full_name'=>'required',
+            'mobile'=>'required',
+            'nationality'=>'required',
             'email'=>'required',
-            'contact_number'=>'required',
+            'enquiry_to'=>'required',
+            'description'=>'required',
             
         ]);
 
-        enrollment::create($request->all());
+        enquiry::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -57,22 +60,22 @@ class EnrollmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
-    public function show(enrollment $enrollment)
+    public function show(enquiry $enquiry)
     {
         //
-        return view('admin.enrollment',compact('enrollment'));
+        return view('admin.enquiry',compact('enquiries'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
-    public function edit(enrollment $enrollment)
+    public function edit(enquiry $enquiry)
     {
         //
     }
@@ -81,10 +84,10 @@ class EnrollmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, enrollment $enrollment)
+    public function update(Request $request, enquiry $enquiry)
     {
         //
     }
@@ -92,10 +95,10 @@ class EnrollmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\enquiry  $enquiry
      * @return \Illuminate\Http\Response
      */
-    public function destroy(enrollment $enrollment)
+    public function destroy(enquiry $enquiry)
     {
         //
     }

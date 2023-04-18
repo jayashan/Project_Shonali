@@ -13,9 +13,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Class Rooms</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                    <h2 class="title-1">Class Attendance</h2>
+                                    <br>
+                                   <!-- <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>add item</button>-->
                                 </div>
                             </div>
                         </div>
@@ -23,26 +24,35 @@
                             <div class="col-lg-6">
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2">Add Class Room Details</h3>
-                                      <form class="row g-3" action="{{route('classrooms.store')}}" method="POST">
+                                        <h3 class="title-2">Absentee</h3>
+                                      <form class="row g-3" action="{{route('addattendances.store')}}" method="POST">
                                         @csrf
                                           <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Class number</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="01" name="class_number">
+                                            <label for="inputAddress" class="form-label">Student Name</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="" name="student_name">
                                           </div>
                                           <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Section</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="A" name="section">
+                                            <label for="inputAddress" class="form-label">Date</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="--/--/----" name="date">
                                           </div>
                                           <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Grade</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="Grade" name="grade">
+                                            <label for="inputAddress" class="form-label">Lecture Name</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="0000" name="lecture_name">
                                           </div>
-                                          <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Lecture ID</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="Lecture ID" name="lecture_id">
+                                          
+                                          <div class="col-md-4">
+                                            <label for="inputState" class="form-label">Grade</label>
+                                            <select id="inputState" class="form-select" name="grade">
+                                              <option selected>Choose...</option>
+                                              <option>Grade 1</option>
+                                              <option>Grade 2</option>
+                                              <option>Grade 3</option>
+                                              <option>Grade 4</option>
+                                              <option>Grade 5</option>
+                                            
+                                            </select>
                                           </div>
-                                         
+                                          
                                           <div class="col-12">
                                             <div class="form-check">
                                               <label class="form-check-label" for="gridCheck">
@@ -60,28 +70,28 @@
                       
                         <div class="row">
                             <div class="col-md-auto">
-                                <h2 class="title-1 m-b-25">Class Details</h2>
+                                <h2 class="title-1 m-b-25">Absentee</h2>
                                 <div class="table-responsive table--no-card m-b-40">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Class Number</th>
-                                                <th>Section</th>
+                                                <th>Student Name</th>
+                                                <th>Date</th>
+                                                <th>Lecture Name</th>
                                                 <th>Grade</th>
-                                                <th>Lecture ID</th>
                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             
-                                          @foreach ($classrooms as $classroom)
+                                          @foreach ($addattendances as $addattendance)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td>{{ $classroom->class_number }}</td>
-                                                <td>{{ $classroom->section }}</td>
-                                                <td>{{ $classroom->grade }}</td>
-                                                <td>{{ $classroom->lecture_id }}</td>
+                                                <td>{{ $addattendance->student_name }}</td>
+                                                <td>{{ $addattendance->date }}</td>
+                                                <td>{{ $addattendance->lecture_name }}</td>
+                                                <td>{{ $addattendance->grade }}</td>
                                                
                                                 <td></td>
                                             </tr>
@@ -89,7 +99,7 @@
                                             
                                         </tbody>
                                     </table>
-                                    {!! $classrooms->links() !!}
+                                    {!! $addattendances->links() !!}
                                 </div>
                             </div>
 

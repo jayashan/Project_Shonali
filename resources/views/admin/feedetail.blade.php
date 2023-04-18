@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
+                                    <h2 class="title-1">Fee Details</h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
                                 </div>
@@ -24,7 +24,7 @@
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                         <h3 class="title-2">Fee Details</h3>
-                                      <form class="row g-3" action="{{route('lectures.store')}}" method="POST">
+                                      <form class="row g-3" action="{{route('feedetails.store')}}" method="POST">
                                         @csrf
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">Fee Id</label>
@@ -39,12 +39,12 @@
                                             <input type="text" class="form-control" id="inputAddress" placeholder="Student Number" name="student_number">
                                           </div>
                                           <div class="col-md-6">
-                                            <label for="inputEmail4" class="form-label">Year</label>
-                                            <input type="email" class="form-control" id="inputEmail4" name="year">
+                                            <label for="inputAddress" class="form-label">Year</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="Year" name="year">
                                           </div>
                                           <div class="col-md-6">
-                                            <label for="inputPassword4" class="form-label">Grade</label>
-                                            <input type="password" class="form-control" id="inputPassword4" name ="grade">
+                                            <label for="inputAddress" class="form-label">Grade</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="Grade" name="grade">
                                           </div>
                                           
                                           <div class="col-12">
@@ -89,7 +89,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($feedetail as $feedetail)
+                                            @foreach ($feedetails as $feedetail)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $feedetail->fee_id }}</td>
@@ -97,14 +97,14 @@
                                                 <td>{{ $feedetail->student_number }}</td>
                                                 <td>{{ $feedetail->year }}</td>
                                                 <td>{{ $feedetail->grade }}</td>
-                                                <td>{{ $feedetail->recevied_by }}</td>
+                                                <td>{{ $feedetail->received_by }}</td>
                                                 <td>{{ $feedetail->paid_on }}</td>
                                                 <td></td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    {!! $feedetail->links() !!}
+                                    {!! $feedetails->links() !!}
                                 </div>
                             </div>
 

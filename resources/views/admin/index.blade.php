@@ -58,8 +58,8 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>---</h2>
-                                                <span>----</span>
+                                                <h2></h2>
+                                                <span>No Of Employees</span>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                             </div>
                                             <div class="text">
                                                 <h2>---</h2>
-                                                <span>---</span>
+                                                <span>No Of Parents</span>
                                             </div>
                                         </div>
                                     </div>

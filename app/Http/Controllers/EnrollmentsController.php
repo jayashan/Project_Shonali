@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\classroom;
+use App\Models\enrollment;
 use Illuminate\Http\Request;
 
-class ClassRoomsController extends Controller
+class EnrollmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class ClassRoomsController extends Controller
     public function index()
     {
         //
-
-        $classrooms=classroom::latest()->paginate(5);
-        return view('admin.classroom',compact('classrooms'))
-                ->with('i',(request()->input('page',1)-1)*5);
+               
+ $enrollments=enrollment::latest()->paginate(5);
+ return view('admin.enrollment',compact('enrollments'))
+     ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -29,7 +29,8 @@ class ClassRoomsController extends Controller
     public function create()
     {
         //
-        return view('admin/classroom');
+        return view('admin.enrollment');
+ 
     }
 
     /**
@@ -41,17 +42,16 @@ class ClassRoomsController extends Controller
     public function store(Request $request)
     {
         //
-
         $request->validate([
-            'class_number'=>'required',
-            'section'=>'required',
-            'grade'=>'required',
-            'lecture_id'=>'required',
-           
-          
+            'enroll_id'=>'required',
+            'fname'=>'required',
+            'lname'=>'required',
+            'email'=>'required',
+            'contact_number'=>'required',
+            
         ]);
 
-        classroom::create($request->all());
+        enrollment::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -59,22 +59,22 @@ class ClassRoomsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
-    public function show(classroom $classroom)
+    public function show(enrollment $enrollment)
     {
         //
-        return view('admin.classroom',compact('classrooms'));
+        return view('admin.enrollment',compact('enrollments'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
-    public function edit(classroom $classroom)
+    public function edit(enrollment $enrollment)
     {
         //
     }
@@ -83,10 +83,10 @@ class ClassRoomsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, classroom $classroom)
+    public function update(Request $request, enrollment $enrollment)
     {
         //
     }
@@ -94,10 +94,10 @@ class ClassRoomsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(classroom $classroom)
+    public function destroy(enrollment $enrollment)
     {
         //
     }

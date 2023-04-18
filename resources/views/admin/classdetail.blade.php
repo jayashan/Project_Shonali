@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
+                                    <h2 class="title-1">Class Details</h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
                                 </div>
@@ -24,7 +24,7 @@
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                         <h3 class="title-2">Class Details</h3>
-                                      <form class="row g-3" action="{{route('lectures.store')}}" method="POST">
+                                      <form class="row g-3" action="{{route('classdetails.store')}}" method="POST">
                                         @csrf
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">Class ID</label>
@@ -69,7 +69,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($classdetail as $classdetail)
+                                            @foreach ($classdetails as $classdetail)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $classdetail->class_id }}</td>
@@ -80,7 +80,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    {!! $classdetail->links() !!}
+                                    {!! $classdetails->links() !!}
                                 </div>
                             </div>
 

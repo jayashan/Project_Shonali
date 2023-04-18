@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class stsparent extends Model
 {
     use HasFactory;
 
     protected $fillable=[
-        'subject_code','subject_name','description'
+        'parent_id','student_number','phone_number','password'
+
     ];
 }

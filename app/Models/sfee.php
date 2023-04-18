@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class sfee extends Model
 {
     use HasFactory;
-
     protected $fillable=[
-        'student_id','fname','lname','email','gender','password','address1','address2'
+        'record_number','grade','fee_month','status'
 
     ];
 }

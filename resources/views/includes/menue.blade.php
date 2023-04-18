@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">School Online System</a>
+    <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,16 +9,27 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/login')}}">Admin</a>
+       
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sign In
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{url('/login')}}">Admin</a></li>
+            <li><a class="dropdown-item" href="{{url('/login')}}">Student</a></li>
+            <li><a class="dropdown-item" href="{{url('/login')}}">Teacher</a></li>
+            <li><a class="dropdown-item" href="{{url('/login')}}">Parent</a></li>
+          </ul>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Teacher
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{url('/admin')}}">Join with Us</a></li>
-            <li><a class="dropdown-item" href="#">Sign In</a></li>
+            <li><a class="dropdown-item" href="{{url('/joinus')}}">Join with Us</a></li>
+         
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -26,8 +37,8 @@
             Student
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{url('/admin')}}">New Admission</a></li>
-            <li><a class="dropdown-item" href="#">Sign In</a></li>
+            <li><a class="dropdown-item" href="{{url('/admission')}}">New Admission</a></li>
+           
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -35,17 +46,17 @@
             More Information
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{url('/admin')}}">Contact Us</a></li>
-            <li><a class="dropdown-item" href="#">About Us</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Gallery</a></li>
+            <li><a class="dropdown-item" href="{{url('/contactus')}}">Contact Us</a></li>
+            <li><a class="dropdown-item" href="{{url('/aboutus')}}">About Us</a></li>
+           <!-- <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Gallery</a></li>-->
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+    <!--  <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form>-->
     </div>
   </div>
 </nav>

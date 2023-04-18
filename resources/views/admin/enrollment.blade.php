@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
+                                    <h2 class="title-1">Enrollment</h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus"></i>add item</button>
                                 </div>
@@ -24,7 +24,7 @@
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                         <h3 class="title-2">Enrollment Details</h3>
-                                      <form class="row g-3" action="{{route('lectures.store')}}" method="POST">
+                                      <form class="row g-3" action="{{route('enrollments.store')}}" method="POST">
                                         @csrf
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">Enrollment Id</label>
@@ -79,7 +79,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($enrollment as $enrollment)
+                                            @foreach ($enrollments as $enrollment)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $enrollment->enroll_id }}</td>
@@ -92,7 +92,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    {!! $enrollment->links() !!}
+                                    {!! $enrollments->links() !!}
                                 </div>
                             </div>
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEnrollmentTable extends Migration
+class CreateExamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateEnrollmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('enrollment', function (Blueprint $table) {
+        Schema::create('exams', function (Blueprint $table) {
             $table->id();
-            $table->string('enroll_id')->unique();
-            $table->string('fname')->nullable();
-            $table->string('lname')->nullable();
-            $table->string('email')->unique();
-            $table->string('contact_number')->nullable();
+            $table->string('exam_id')->unique();
+            $table->string('date')->nullable();
+            $table->string('term')->nullable(); 
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateEnrollmentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enrollment');
+        Schema::dropIfExists('exams');
     }
 }

@@ -5,10 +5,18 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LecturesController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AdminHomeController;
-use App\Http\Controllers\ParentController;
 use App\Http\Controllers\AttendancesController;
 use App\Http\Controllers\ClassRoomsController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\StsparentsController;
+use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\EnrollmentsController;
+use App\Http\Controllers\SfeesController;
+use App\Http\Controllers\FeedetailsController;
+use App\Http\Controllers\ClassdetailsController;
+use App\Http\Controllers\ExamsController;
+use App\Http\Controllers\EnquiriesController;
+use App\Http\Controllers\AddattendancesController;
 
 
 /*
@@ -51,6 +59,19 @@ Route::get('/aboutus', function () {
 Route::get('/contactus', function () {
     return view('pages.contactus');
 });
+
+// join us us page
+Route::get('/joinus', function () {
+    return view('pages.joinus');
+});
+
+// join us admission 
+Route::get('/admission', function () {
+    return view('pages.admission');
+});
+
+
+
 
 // class (admin) page
 Route::get('/class', function () {
@@ -123,9 +144,18 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::resource('lectures',LecturesController::class);
 Route::resource('students',StudentsController::class);
-Route::resource('parents',ParentController::class);
+Route::resource('stsparents',StsparentsController::class);
 Route::resource('attendances',AttendancesController::class);
-Route::resource('classes',ClassRoomsController::class);
+Route::resource('classrooms',ClassRoomsController::class);
 Route::resource('subjects',SubjectController::class);
+Route::resource('employees',EmployeesController::class);
+Route::resource('enrollments',EnrollmentsController::class);
+Route::resource('sfees',SfeesController::class);
+Route::resource('feedetails',FeedetailsController::class);
+Route::resource('classdetails',ClassdetailsController::class);
+Route::resource('exams',ExamsController::class);
+Route::resource('enquiries',EnquiriesController::class);
+Route::resource('addattendances',AddattendancesController::class);
+
 
 Route::get('admin',[AdminHomeController::class,'Index']);

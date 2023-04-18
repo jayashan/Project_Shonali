@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\employee;
+use App\Models\addattendance;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class AddattendancesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        $employee=employee::latest()->paginate(5);
-        return view('admin.employee',compact('employee'))
+        $addattendances=addattendance::latest()->paginate(5);
+        return view('teacher.addattendance',compact('addattendances'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 
@@ -28,7 +28,7 @@ class EmployeeController extends Controller
     public function create()
     {
         //
-        return view('admin.employee');
+        return view('teacher/addattendance');
     }
 
     /**
@@ -42,17 +42,15 @@ class EmployeeController extends Controller
         //
 
         $request->validate([
-            'employee_id'=>'required',
-            'fname'=>'required',
-            'lname'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-            'gender'=>'required',
-            'address1'=>'required',
-            'address2'=>'required',
+            'student_name'=>'required',
+            'date'=>'required',
+            'lecture_name'=>'required',
+            'grade'=>'required',
+           
+          
         ]);
 
-        employee::create($request->all());
+        addattendance::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -60,22 +58,22 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\employee  $employee
+     * @param  \App\Models\addattendance  $addattendance
      * @return \Illuminate\Http\Response
      */
-    public function show(employee $employee)
+    public function show(addattendance $addattendance)
     {
         //
-        return view('admin.employee',compact('employee'));
+        return view('teacher.addattendance',compact('addattendances'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\employee  $employee
+     * @param  \App\Models\addattendance  $addattendance
      * @return \Illuminate\Http\Response
      */
-    public function edit(employee $employee)
+    public function edit(addattendance $addattendance)
     {
         //
     }
@@ -84,10 +82,10 @@ class EmployeeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\employee  $employee
+     * @param  \App\Models\addattendance  $addattendance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, employee $employee)
+    public function update(Request $request, addattendance $addattendance)
     {
         //
     }
@@ -95,10 +93,10 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\employee  $employee
+     * @param  \App\Models\addattendance  $addattendance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(employee $employee)
+    public function destroy(addattendance $addattendance)
     {
         //
     }

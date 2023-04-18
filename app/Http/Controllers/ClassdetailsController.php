@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Models\classdetail;
 use Illuminate\Http\Request;
 
-class ClassdetailController extends Controller
+class ClassdetailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,10 @@ class ClassdetailController extends Controller
     public function index()
     {
         //
-        $classdetail=classdetail::latest()->paginate(5);
-        return view('admin.classdetail',compact('classdetail'))
-            ->with('i',(request()->input('page',1)-1)*5);
+        
+ $classdetails=classdetail::latest()->paginate(5);
+ return view('admin.classdetail',compact('classdetails'))
+     ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -28,7 +29,8 @@ class ClassdetailController extends Controller
     public function create()
     {
         //
-        return view('admin.classdetail');
+        
+ return view('admin.classdetail');
     }
 
     /**
@@ -61,7 +63,8 @@ class ClassdetailController extends Controller
     public function show(classdetail $classdetail)
     {
         //
-        return view('admin.classdetail',compact('classdetail'));
+        return view('admin.classdetail',compact('classdetails'));
+        
     }
 
     /**

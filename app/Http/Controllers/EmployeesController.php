@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\fee;
+use App\Models\employee;
 use Illuminate\Http\Request;
 
-class FeeController extends Controller
+class EmployeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class FeeController extends Controller
     public function index()
     {
         //
-        $fee=fee::latest()->paginate(5);
-        return view('admin.fee',compact('fee'))
+        $employees=employee::latest()->paginate(5);
+        return view('admin.employee',compact('employees'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 
@@ -28,7 +28,7 @@ class FeeController extends Controller
     public function create()
     {
         //
-        return view('admin.fee');
+        return view('admin.employee');
     }
 
     /**
@@ -40,15 +40,19 @@ class FeeController extends Controller
     public function store(Request $request)
     {
         //
+
         $request->validate([
-            'record_number'=>'required',
-            'grade'=>'required',
-            'fee_month'=>'required',
-            'status'=>'required',
-           
+            'employee_id'=>'required',
+            'fname'=>'required',
+            'lname'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'gender'=>'required',
+            'address1'=>'required',
+            'address2'=>'required',
         ]);
 
-        fee::create($request->all());
+        employee::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -56,22 +60,22 @@ class FeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(fee $fee)
+    public function show(employee $employee)
     {
         //
-        return view('admin.fee',compact('fee'));
+        return view('admin.employee',compact('employees'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(fee $fee)
+    public function edit(employee $employee)
     {
         //
     }
@@ -80,10 +84,10 @@ class FeeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, fee $fee)
+    public function update(Request $request, employee $employee)
     {
         //
     }
@@ -91,10 +95,10 @@ class FeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(fee $fee)
+    public function destroy(employee $employee)
     {
         //
     }

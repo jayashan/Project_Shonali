@@ -11,7 +11,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">    
-        <img src="images/icon/contact.jpg" alt="Image" >        
+        <img src="images/icon/joinus.jpg" alt="Image" >        
         <div class="row"> 
         <div class="carousel-caption">
         </div>      
@@ -40,7 +40,7 @@
                                     <div class="au-card-inner">
                                       <br>
                                       <br>
-                                        <h3 class="title-2">Enquiries</h3>
+                                        <h1 class="title-2">Work with Us</h1>
                                         <br>
                                       <form class="row g-3" action="{{route('enquiries.store')}}" method="POST">
                                         @csrf
@@ -66,7 +66,7 @@
                                             <select id="inputState" class="form-select" name="gender">
                                               <option selected>Choose...</option>
                                               <option>General Enquiry</option>
-                                              <option>Student Admission Enquiry</option>
+                                              <option>Student  Enquiry</option>
                                               <option>Job Application Enquiry</option>
                                             </select>
                                           </div>

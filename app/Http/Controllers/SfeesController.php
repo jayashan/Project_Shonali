@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\classroom;
+use App\Models\sfee;
 use Illuminate\Http\Request;
 
-class ClassRoomsController extends Controller
+class SfeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,11 @@ class ClassRoomsController extends Controller
     {
         //
 
-        $classrooms=classroom::latest()->paginate(5);
-        return view('admin.classroom',compact('classrooms'))
-                ->with('i',(request()->input('page',1)-1)*5);
+        $sfees=sfee::latest()->paginate(5);
+       
+
+        return view('admin.fee',compact('sfees'))
+            ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -29,7 +31,7 @@ class ClassRoomsController extends Controller
     public function create()
     {
         //
-        return view('admin/classroom');
+        return view('admin.fee');
     }
 
     /**
@@ -41,40 +43,39 @@ class ClassRoomsController extends Controller
     public function store(Request $request)
     {
         //
+        
+ $request->validate([
+    'record_number'=>'required',
+    'grade'=>'required',
+    'fee_month'=>'required',
+    'status'=>'required',
+   
+]);
 
-        $request->validate([
-            'class_number'=>'required',
-            'section'=>'required',
-            'grade'=>'required',
-            'lecture_id'=>'required',
-           
-          
-        ]);
+sfee::create($request->all());
 
-        classroom::create($request->all());
-
-        return Redirect::back()->with('message','Operation Successful !');
+return Redirect::back()->with('message','Operation Successful !');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\sfee  $sfee
      * @return \Illuminate\Http\Response
      */
-    public function show(classroom $classroom)
+    public function show(sfee $sfee)
     {
         //
-        return view('admin.classroom',compact('classrooms'));
+        return view('admin.fee',compact('sfees'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\sfee  $sfee
      * @return \Illuminate\Http\Response
      */
-    public function edit(classroom $classroom)
+    public function edit(sfee $sfee)
     {
         //
     }
@@ -83,10 +84,10 @@ class ClassRoomsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\sfee  $sfee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, classroom $classroom)
+    public function update(Request $request, sfee $sfee)
     {
         //
     }
@@ -94,10 +95,10 @@ class ClassRoomsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\sfee  $sfee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(classroom $classroom)
+    public function destroy(sfee $sfee)
     {
         //
     }

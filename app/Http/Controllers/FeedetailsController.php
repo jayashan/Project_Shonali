@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\classroom;
+use App\Models\feedetail;
 use Illuminate\Http\Request;
 
-class ClassRoomsController extends Controller
+class FeedetailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,11 @@ class ClassRoomsController extends Controller
     {
         //
 
-        $classrooms=classroom::latest()->paginate(5);
-        return view('admin.classroom',compact('classrooms'))
-                ->with('i',(request()->input('page',1)-1)*5);
+        $feedetails=feedetail::latest()->paginate(5);
+       
+
+        return view('admin.feedetail',compact('feedetails'))
+            ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -29,7 +31,7 @@ class ClassRoomsController extends Controller
     public function create()
     {
         //
-        return view('admin/classroom');
+        return view('admin.feedetail');
     }
 
     /**
@@ -41,17 +43,18 @@ class ClassRoomsController extends Controller
     public function store(Request $request)
     {
         //
-
         $request->validate([
-            'class_number'=>'required',
-            'section'=>'required',
+            'fee_id'=>'required',
+            'record_number'=>'required',
+            'student_number'=>'required',
+            'year'=>'required',
             'grade'=>'required',
-            'lecture_id'=>'required',
-           
-          
+            'received_by'=>'required',
+            'paid_on'=>'required',
+            
         ]);
 
-        classroom::create($request->all());
+        feedetail::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -59,22 +62,22 @@ class ClassRoomsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\feedetail  $feedetail
      * @return \Illuminate\Http\Response
      */
-    public function show(classroom $classroom)
+    public function show(feedetail $feedetail)
     {
         //
-        return view('admin.classroom',compact('classrooms'));
+        return view('admin.feedetail',compact('feedetails'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\feedetail  $feedetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(classroom $classroom)
+    public function edit(feedetail $feedetail)
     {
         //
     }
@@ -83,10 +86,10 @@ class ClassRoomsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\feedetail  $feedetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, classroom $classroom)
+    public function update(Request $request, feedetail $feedetail)
     {
         //
     }
@@ -94,10 +97,10 @@ class ClassRoomsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\classroom  $classroom
+     * @param  \App\Models\feedetail  $feedetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(classroom $classroom)
+    public function destroy(feedetail $feedetail)
     {
         //
     }

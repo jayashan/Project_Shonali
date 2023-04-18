@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Subject;
+use App\Models\stsparent;
 use Illuminate\Http\Request;
 
-class SubjectController extends Controller
+class StsparentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,12 @@ class SubjectController extends Controller
     public function index()
     {
         //
-        $subjects=Subject::latest()->paginate(5);
-        return view('admin.subjects',compact('subjects'))
-            ->with('i',(request()->input('page',1)-1)*5);
 
+        $stsparents=stsparent::latest()->paginate(5);
+       
+
+        return view('admin.parent',compact('stsparents'))
+            ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -29,7 +31,8 @@ class SubjectController extends Controller
     public function create()
     {
         //
-        return view('admin.subjects');
+
+        return view('admin.parent');
     }
 
     /**
@@ -41,13 +44,16 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
         //
+
         $request->validate([
-            'subject_code'=>'required',
-            'subject_name'=>'required',
-            'description'=>'required'
+            'parent_id'=>'required',
+            'student_number'=>'required',
+            'phone_number'=>'required',
+            'password'=>'required',
+            
         ]);
 
-        Subject::create($request->all());
+        stsparent::create($request->all());
 
         return Redirect::back()->with('message','Operation Successful !');
     }
@@ -55,56 +61,46 @@ class SubjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Subject  $subject
+     * @param  \App\Models\stsparent  $stsparent
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
+    public function show(stsparent $stsparent)
     {
         //
-        return view('admin.subjects',compact('subject'));
+
+        return view('admin.parent',compact('stsparents'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Subject  $subject
+     * @param  \App\Models\stsparent  $stsparent
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subject $subject)
+    public function edit(stsparent $stsparent)
     {
         //
-        return view('includes.subjects.EditSubject',compact('subject'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Subject  $subject
+     * @param  \App\Models\stsparent  $stsparent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request, stsparent $stsparent)
     {
         //
-        $request->validate([
-            'subject_code'=>'required',
-            'subject_name'=>'required',
-            'description'=>'required'
-        ]);
-
-        $subject->update($request->all());
-
-        return redirect()->route('subjects.index')
-                        ->with('success','subject updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Subject  $subject
+     * @param  \App\Models\stsparent  $stsparent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $subject)
+    public function destroy(stsparent $stsparent)
     {
         //
     }
