@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture Report</title>
+    <title>Student Report</title>
     <style>
         body{
             background-color: #F6F6F6; 
@@ -98,7 +98,7 @@
         <div class="brand-section">
             <div class="row">
                 <div class="col-6">
-                    <h1 class="text-white">Lectures Details Report</h1>
+                    <h1 class="text-white">Students Details Report</h1>
                 </div>
                 <div class="col-6">
                     <div class="company-details">
@@ -122,82 +122,44 @@
     
 
         <div class="body-section">
-            <h3 class="heading">Total Lecture Details</h3>
+            <h3 class="heading">Total Students Details</h3>
             <br>
             <table class="table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th class="w-20">Lecture ID</th>
+                        <th class="w-20">Student Number</th>
+                        <th class="w-10">Enroll ID</th>
                         <th class="w-10">First Name</th>
-                        <th class="w-10">Last Name</th>
-                        <th class="w-10">Email</th>
+                        <th class="w-10">Last Name</th>                     
                         <th class="w-10">Gender</th>
-                        <th class="w-10">Address 1</th>
-                        <th class="w-10">Address 2</th>
+                        <th class="w-10">Date of Birth</th>
+                        <th class="w-10">Email</th>
+                        <th class="w-10">Phone Number</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>45454</td>
-                        <td>rtrt</td>
-                        <td>rtrttr</td>
-                        <td>tttt@gmail.com</td>
-                        <td>Male</td>
-                        <td>rtrtrtrt</td>
-                        <td>rtrt</td>
+                        <td>5685</td>
+                        <td>1124</td>
+                        <td>Vishaka</td>
+                        <td>Perera</td>
+                        <td>Female</td>
+                        <td>05/05/1989</td>
+                        <td>Vishaka@gmail.com</td>
+                        <td>0778965231</td>
                     </tr>
                     <tr>
                     <td>2</td>
-                        <td>6767</td>
-                        <td>fdff</td>
-                        <td>dfdfg</td>
-                        <td>cvcvci@gmail.com</td>
-                        <td>Male</td>
-                        <td>dfvdfdf</td>
-                        <td>dfdf</td>
-                    </tr>
-                    <tr>
-                    <td>3</td>
-                        <td>3443466</td>
-                        <td>yyyy</td>
-                        <td>yyy</td>
-                        <td>yyy@gmail.com</td>
-                        <td>Female</td>
-                        <td>dfdfd</td>
-                        <td>dfdfdd</td>
-                    </tr>
-                    <tr>
-                    <td>4</td>
-                        <td>34434</td>
-                        <td>rtrg</td>
-                        <td>fgfhgf</td>
-                        <td>gfhgfhfhf@gmail.com</td>
-                        <td>Female</td>
-                        <td>dfdfd</td>
-                        <td>dfdfdd</td>
-                    </tr>
-                    <tr>
-                    <td>5</td>
-                        <td>34346</td>
-                        <td>ssss</td>
-                        <td>dfdfd</td>
-                        <td>fgfg@dfdfd</td>
-                        <td>Female</td>
-                        <td>dfdfd</td>
-                        <td>dfdfdd</td>
-                    </tr>
-
-                    <tr>
-                    <td>6</td>
+                        <td>1111</td>
                         <td>1111</td>
                         <td>shonali</td>
                         <td>peiris</td>
-                        <td>shonali@gmail.com</td>
                         <td>Female</td>
-                        <td>main</td>
-                        <td>main</td>
+                        <td>24/05/1993</td>
+                        <td>shonali@gmail.com</td>
+                        <td>0743104661</td>
                     </tr>
 
                 </tbody>

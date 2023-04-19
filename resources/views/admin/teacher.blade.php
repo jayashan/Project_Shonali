@@ -13,9 +13,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                    <h2 class="title-1">overview
+                                      
+                                    </h2>
+                                    <a href="{{url('generatereport')}}"class="btn btn-success float-right"> Generate Report</a>
+                                    <!--<button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus" >Add item</button></i>-->
                                 </div>
                             </div>
                         </div>

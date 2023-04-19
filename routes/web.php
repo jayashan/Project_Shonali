@@ -170,6 +170,11 @@ Route::resource('entermarks',EntermarksController::class);
 
 Route::get('admin',[AdminHomeController::class,'Index']);
 
+Route::get('generatereport',[LecturesController::class,'report']);
+Route::get('generatereports',[StudentsController::class,'report']);
+Route::get('generatereportp',[StsparentsController::class,'report']);
+
+
 
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');

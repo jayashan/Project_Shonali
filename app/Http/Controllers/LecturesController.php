@@ -102,4 +102,15 @@ class LecturesController extends Controller
     {
         //
     }
+
+    public function report()
+    {
+        //
+
+        return view('admin.report');
+       
+    }
+
+
+
 }

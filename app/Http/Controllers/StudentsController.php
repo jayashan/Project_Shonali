@@ -105,4 +105,12 @@ class StudentsController extends Controller
     {
         //
     }
+    public function report()
+    {
+        //
+
+        return view('admin.reports');
+       
+    }
+
 }
