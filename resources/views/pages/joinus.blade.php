@@ -1,6 +1,19 @@
+
 @extends('layouts.template')
 
-@section('content')
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Contact us form</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -10,84 +23,95 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">    
-        <img src="images/icon/joinus.jpg" alt="Image" >        
+      <div class="item active">
+        <img src="images/icon/joinus.jpg" alt="Image" >
         <div class="row"> 
         <div class="carousel-caption">
         </div>      
       </div>
     </div>
 </div>
+</div>
 
 
-
-
-<div class="main-content">
-                <div class="section__content section__content--p100">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                  <!--  <h2 class="title-1">overview</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>-->
-                                </div>
+    <div class="container">
+        <div class="row mt-5 mb-5">
+            <div class="col-10 offset-1 mt-5">
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <h3 class="text-white">Join Us</h3>
+                    </div>
+                    <div class="card-body">
+  
+                        @if(Session::has('success'))
+                            <div class="alert alert-success">
+                                {{Session::get('success')}}
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="au-card recent-report">
-                                    <div class="au-card-inner">
-                                      <br>
-                                      <br>
-                                        <h1 class="title-2">Work with Us</h1>
-                                        <br>
-                                      <form class="row g-3" action="{{route('enquiries.store')}}" method="POST">
-                                        @csrf
-                                          <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Full Name</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="" name="lecture_id">
-                                          </div>
-                                          <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Mobile</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="" name="fname">
-                                          </div>
-                                          <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Nationality</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="" name="lname">
-                                          </div>
-                                          <div class="col-md-6">
-                                            <label for="inputEmail4" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4" name="email">
-                                          </div>
-                                          
-                                          <div class="col-md-4">
-                                            <label for="inputState" class="form-label">Enquiry to</label>
-                                            <select id="inputState" class="form-select" name="gender">
-                                              <option selected>Choose...</option>
-                                              <option>General Enquiry</option>
-                                              <option>Student  Enquiry</option>
-                                              <option>Job Application Enquiry</option>
-                                            </select>
-                                          </div>
-                                          <div class="col-12">
-                                            <label for="inputAddress" class="form-label">Description</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="" name="address1">
-                                            
-                                          </div>
-                                          
-                                          <div class="col-12">
-                                            <div class="form-check">
-                                              <label class="form-check-label" for="gridCheck">
-
-                                              </label>
-                                            </div>
-                                          </div>
-                                          <div class="col-12">
-                                            <button type="submit" class="btn btn-primary">Send</button>
-                                          </div>
-                                        </form>
+                        @endif
+                     
+                        <form method="POST" action="{{ route('join.us.store') }}" id="joinUSForm">
+                            {{ csrf_field() }}
+                              
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>Name:</strong>
+                                        <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}">
+                                        @if ($errors->has('name'))
+                                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>Email:</strong>
+                                        <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-@stop
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>Phone:</strong>
+                                        <input type="text" name="phone" class="form-control" placeholder="Phone" value="{{ old('phone') }}">
+                                        @if ($errors->has('phone'))
+                                            <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>Subject:</strong>
+                                        <input type="text" name="subject" class="form-control" placeholder="Subject" value="{{ old('subject') }}">
+                                        @if ($errors->has('subject'))
+                                            <span class="text-danger">{{ $errors->first('subject') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <strong>Message:</strong>
+                                        <textarea name="message" rows="3" class="form-control">{{ old('message') }}</textarea>
+                                        @if ($errors->has('message'))
+                                            <span class="text-danger">{{ $errors->first('message') }}</span>
+                                        @endif
+                                    </div>  
+                                </div>
+                            </div>
+                     
+                            <div class="form-group text-center">
+                                <button class="btn btn-success btn-submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

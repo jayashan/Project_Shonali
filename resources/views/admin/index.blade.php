@@ -58,7 +58,7 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2></h2>
+                                                <h2>{{$No_Of_Employee}}</h2>
                                                 <span>No Of Employees</span>
                                             </div>
                                         </div>
@@ -73,14 +73,14 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>---</h2>
+                                                <h2>{{$No_Of_Stsparents}}</h2>
                                                 <span>No Of Parents</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        
                         <!--
                         <div class="row">
                             <div class="col-lg-6">

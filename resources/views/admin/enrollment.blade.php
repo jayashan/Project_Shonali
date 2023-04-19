@@ -87,7 +87,7 @@
                                                 <td>{{ $enrollment->lname }}</td>
                                                 <td>{{ $enrollment->email }}</td>
                                                 <td>{{ $enrollment->contact_number }}</td>
-                                                <td></td>
+                                                <td> </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

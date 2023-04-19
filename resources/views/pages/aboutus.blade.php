@@ -11,11 +11,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-      
         <img src="images/icon/aboutus.png" alt="Image" >
-       
-
-        
         <div class="row"> 
         <div class="carousel-caption">
         </div>      

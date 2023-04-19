@@ -1,6 +1,11 @@
+
+@extends('layouts.template')
+
 <!DOCTYPE html>
+
 <html>
 <head>
+
     <title>Contact us form</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +13,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
 <body>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="images/icon/contact.jpg" alt="Image" >
+        <div class="row"> 
+        <div class="carousel-caption">
+        </div>      
+      </div>
+    </div>
+</div>
+</div>
+
+
     <div class="container">
         <div class="row mt-5 mb-5">
             <div class="col-10 offset-1 mt-5">

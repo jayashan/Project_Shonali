@@ -18,7 +18,10 @@ use App\Http\Controllers\ExamsController;
 use App\Http\Controllers\EnquiriesController;
 use App\Http\Controllers\AddattendancesController;
 use App\Http\Controllers\ContactController;
-
+use App\Http\Controllers\JoinusController;
+use App\Http\Controllers\AddexamsController;
+use App\Http\Controllers\AddlessonsController;
+use App\Http\Controllers\EntermarksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +41,8 @@ use App\Http\Controllers\ContactController;
 Route::get('/', function () {
     return view('pages.home');
 });
+
+
 //admin page
 // Route::get('/admin', function () {
 //     return view('admin.index');
@@ -157,6 +162,10 @@ Route::resource('classdetails',ClassdetailsController::class);
 Route::resource('exams',ExamsController::class);
 Route::resource('enquiries',EnquiriesController::class);
 Route::resource('addattendances',AddattendancesController::class);
+Route::resource('addexams',AddexamsController::class);
+Route::resource('addlessons',AddlessonsController::class);
+Route::resource('entermarks',EntermarksController::class);
+
 
 
 Route::get('admin',[AdminHomeController::class,'Index']);
@@ -164,3 +173,7 @@ Route::get('admin',[AdminHomeController::class,'Index']);
 
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
+
+
+Route::get('join-us', [JoinusController::class, 'index']);
+Route::post('join-us', [JoinusController::class, 'store'])->name('join.us.store');

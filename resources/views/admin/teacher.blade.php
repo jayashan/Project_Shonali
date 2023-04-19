@@ -54,11 +54,11 @@
                                               <option>Female</option>
                                             </select>
                                           </div>
-                                          <div class="col-12">
+                                          <div class="col-6">
                                             <label for="inputAddress" class="form-label">Address 1</label>
                                             <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address1">
                                           </div>
-                                          <div class="col-12">
+                                          <div class="col-6">
                                             <label for="inputAddress2" class="form-label">Address 2</label>
                                             <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="address2">
                                           </div>
@@ -78,10 +78,10 @@
                             </div>
                       
                         <div class="row">
-                            <div class="col-md-auto">
+                        <div class="col-8">
                                 <h2 class="title-1 m-b-25">Lecture Details</h2>
                                 <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
+                                    <table class="table table-borderless table-striped table-earning"style="width:40%">
                                         <thead>
                                             <tr>
                                                 <th>No</th>

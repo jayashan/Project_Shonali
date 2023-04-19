@@ -60,10 +60,10 @@
                             <a href="{{url('/exams')}}">
                                 <i class="fas fa-copy"></i>Exams</a>
                         </li>
-                        <li>
+                      <!--  <li>
                             <a href="{{url('/enquiries')}}">
                                 <i class="fas fa-copy"></i>Enquiry</a>
-                        </li>
+                        </li>-->
                        <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages</a>
