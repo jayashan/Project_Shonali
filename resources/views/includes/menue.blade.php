@@ -46,7 +46,7 @@
             More Information
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{url('/contactus')}}">Contact Us</a></li>
+            <li><a class="dropdown-item" href="{{url('contact-us')}}">Contact Us</a></li>
             <li><a class="dropdown-item" href="{{url('/aboutus')}}">About Us</a></li>
            <!-- <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Gallery</a></li>-->

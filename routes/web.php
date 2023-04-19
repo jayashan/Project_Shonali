@@ -17,6 +17,7 @@ use App\Http\Controllers\ClassdetailsController;
 use App\Http\Controllers\ExamsController;
 use App\Http\Controllers\EnquiriesController;
 use App\Http\Controllers\AddattendancesController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -55,10 +56,10 @@ Route::get('/aboutus', function () {
     return view('pages.aboutus');
 });
 
-// contact us page
-Route::get('/contactus', function () {
-    return view('pages.contactus');
-});
+// // contact us page
+// Route::get('/contactus', function () {
+//     return view('pages.contactus');
+// });
 
 // join us us page
 Route::get('/joinus', function () {
@@ -159,3 +160,7 @@ Route::resource('addattendances',AddattendancesController::class);
 
 
 Route::get('admin',[AdminHomeController::class,'Index']);
+
+
+Route::get('contact-us', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
