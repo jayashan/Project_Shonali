@@ -38,6 +38,7 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
+        
         @include('includes.admin_header')
         <!-- END HEADER MOBILE-->
 

@@ -1,4 +1,6 @@
-<aside class="menu-sidebar d-none d-lg-block">
+@if(Auth::user()->type=='admin')
+{
+    <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="{{url('/')}}">
                     <img src="images/icon/pl.png" alt="Cool Admin" />
@@ -7,26 +9,27 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
+
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="{{url('/lectures')}}">Teachers</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/students')}}">Students</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/stsparents')}}">Parents</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/employees')}}">Employee</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/subjects')}}">Subjects</a>
-                                </li>
-                            </ul>
+                                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                            <li>
+                                                <a href="{{url('/lectures')}}">Teachers</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{url('/students')}}">Students</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{url('/stsparents')}}">Parents</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{url('/employees')}}">Employee</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{url('/subjects')}}">Subjects</a>
+                                            </li>
+                                    </ul>
                         </li>
                         <li>
                             <a href="{{url('/attendances')}}">
@@ -121,4 +124,51 @@
                     </ul>
                 </nav>
             </div>
-        </aside>
+    </aside>
+}
+@elseif(Auth::user()->type=='user')
+{
+    <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="{{url('/')}}">
+                    <img src="images/icon/pl.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                            <li>
+                                                <a href="">Item 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Item 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Item 3</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Item 4</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Item 5</a>
+                                            </li>
+                                    </ul>
+                        </li>
+                        
+                        
+                      
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    </aside>
+}
+@endif
+
+

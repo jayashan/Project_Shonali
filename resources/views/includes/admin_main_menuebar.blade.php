@@ -137,7 +137,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                    <h5 class="name">
+                                                    <h5 class="name"> 
                                                         <a href="#">{{ Auth::user()->name }}</a>
                                                     </h5>
                                                     <span class="email">{{ Auth::user()->email }}</span>
