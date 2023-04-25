@@ -55,7 +55,7 @@ class LecturesController extends Controller
 
         Lecture::create($request->all());
 
-        return redirect('/lectures');
+        return Redirect::back()->with('message','Operation Successful !');
     }
 
     /**
