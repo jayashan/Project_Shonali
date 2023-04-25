@@ -16,10 +16,8 @@ class LecturesController extends Controller
     public function index()
     {
         $messages=Contact::latest()->paginate(5);
-        $lectures=Lecture::latest()->paginate(5);
-        return view('admin.teacher',compact('lectures','messages'))
-            ->with('i',(request()->input('page',1)-1)*5);
-
+        $lectures=Lecture::paginate(5);
+        return view('admin.teacher',compact('lectures','messages'));
     }
 
     /**

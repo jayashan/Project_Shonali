@@ -94,7 +94,7 @@
                                     <table class="table table-borderless table-striped table-earning"style="width:40%">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
+
                                                 <th>Lecture ID</th>
                                                 <th>First Name</th>
                                                 <th>Last Name</th>
@@ -108,7 +108,6 @@
                                         <tbody>
                                             @foreach ($lectures as $lecture)
                                             <tr>
-                                                <td>{{ ++$i }}</td>
                                                 <td>{{ $lecture->lecture_id }}</td>
                                                 <td>{{ $lecture->fname }}</td>
                                                 <td>{{ $lecture->lname }}</td>
