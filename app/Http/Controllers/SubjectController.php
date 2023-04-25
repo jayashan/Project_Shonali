@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class SubjectController extends Controller
 {
@@ -15,8 +16,9 @@ class SubjectController extends Controller
     public function index()
     {
         //
+        $messages=Contact::latest()->paginate(5);
         $subjects=Subject::latest()->paginate(5);
-        return view('admin.subjects',compact('subjects'))
+        return view('admin.subjects',compact('subjects','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
 
     }

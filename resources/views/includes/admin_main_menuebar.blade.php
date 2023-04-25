@@ -12,34 +12,24 @@
                                 <div class="noti-wrap">
                                    <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-comment-more"></i>
-                                        <span class="quantity">1</span>
+                                        <span class="quantity">{!!$messages->total()!!} </span>
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
-                                                <p>You have 2 news message</p>
+                                                <p>You have {!!$messages->total()!!} messages</p>
                                             </div>
+                                            @foreach($messages as $i)
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
                                                     <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
-                                                    <h6>Michelle Moreno</h6>
-                                                    <p>Have sent a photo</p>
-                                                    <span class="time">3 min ago</span>
+                                                    <h6>{{$i->name}}</h6>
+                                                    <h8>{{$i->subject}}</h8>
+                                                    <p>{{$i->message}}</p>
+                                                    <span class="time">on {{$i->created_at}}</span>
                                                 </div>
                                             </div>
-                                            <div class="mess__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
-                                                </div>
-                                                <div class="content">
-                                                    <h6>Diane Myers</h6>
-                                                    <p>You are now connected on message</p>
-                                                    <span class="time">Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="mess__footer">
-                                                <a href="#">View all messages</a>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">

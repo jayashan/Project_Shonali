@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\sfee;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class SfeesController extends Controller
 {
@@ -15,11 +16,11 @@ class SfeesController extends Controller
     public function index()
     {
         //
-
+        $messages=Contact::latest()->paginate(5);
         $sfees=sfee::latest()->paginate(5);
        
 
-        return view('admin.fee',compact('sfees'))
+        return view('admin.fee',compact('sfees','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

@@ -2,10 +2,6 @@
 
 @section('content')
 <div class="page-container">
-        <!-- MAIN MENUEBAR-->
-            @include('includes.admin_main_menuebar')
-        <!-- HMAIN MENUEBAR -->
-
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -31,7 +27,7 @@
                                         @csrf
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">Lecture ID</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="L00-" name="lecture_id">
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="L00-" name="lecture_id" value="{{ old('lecture_id') }}" required>
                                           </div>
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">First Name</label>
@@ -75,6 +71,17 @@
                                           <div class="col-12">
                                             <button type="submit" class="btn btn-primary">Save</button>
                                           </div>
+                                          @if(count($errors))
+                                              <div class="form-group">
+                                                  <div class="alert alert-danger">
+                                                      <ul>
+                                                          @foreach($errors->all() as $error)
+                                                              <li>{{$error}}</li>
+                                                          @endforeach
+                                                      </ul>
+                                                  </div>
+                                              </div>
+                                          @endif
                                         </form>
                                     </div>
                                 </div>

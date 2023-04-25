@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\enrollment;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class EnrollmentsController extends Controller
 {
@@ -15,10 +16,10 @@ class EnrollmentsController extends Controller
     public function index()
     {
         //
-               
- $enrollments=enrollment::latest()->paginate(5);
- return view('admin.enrollment',compact('enrollments'))
-     ->with('i',(request()->input('page',1)-1)*5);
+        $messages=Contact::latest()->paginate(5);    
+        $enrollments=enrollment::latest()->paginate(5);
+            return view('admin.enrollment',compact('enrollments','messages'))
+            ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**

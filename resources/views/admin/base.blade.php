@@ -46,6 +46,10 @@
         @include('includes.admin_menue_sidebar')
         <!-- END MENU SIDEBAR-->
 
+        <!-- MAIN MENUEBAR-->
+        @include('includes.admin_main_menuebar')
+        <!-- HMAIN MENUEBAR -->
+
         <!-- PAGE CONTAINER-->
         @yield('content')
 

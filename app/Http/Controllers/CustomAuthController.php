@@ -7,13 +7,14 @@ use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Contact;
 
 class CustomAuthController extends Controller
 {
     //
     public function index()
     {
+        $messages=Contact::latest()->paginate(5);
         return view('auth.login');
     }  
       

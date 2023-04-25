@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Joinus;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class JoinusController extends Controller
 {
@@ -15,6 +16,7 @@ class JoinusController extends Controller
     public function index()
     {
         //
+        $messages=Contact::latest()->paginate(5);
         return view('pages.joinus');
     }
 

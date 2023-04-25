@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Lecture;
 use Illuminate\Http\Request;
-
+use App\Models\Contact;
 
 class LecturesController extends Controller
 {
@@ -15,8 +15,9 @@ class LecturesController extends Controller
      */
     public function index()
     {
+        $messages=Contact::latest()->paginate(5);
         $lectures=Lecture::latest()->paginate(5);
-        return view('admin.teacher',compact('lectures'))
+        return view('admin.teacher',compact('lectures','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
 
     }
@@ -42,11 +43,11 @@ class LecturesController extends Controller
     {
         //
         $request->validate([
-            'lecture_id'=>'required',
+            'lecture_id'=>'required|unique:lectures',
             'fname'=>'required',
             'lname'=>'required',
-            'email'=>'required',
-            'password'=>'required',
+            'email'=>'required|email|max:255',
+            'password'=>'required|min:6|max:255',
             'gender'=>'required',
             'address1'=>'required',
             'address2'=>'required',
@@ -54,7 +55,7 @@ class LecturesController extends Controller
 
         Lecture::create($request->all());
 
-        return Redirect::back()->with('message','Operation Successful !');
+        return redirect('/lectures');
     }
 
     /**

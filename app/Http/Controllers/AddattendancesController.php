@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\addattendance;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class AddattendancesController extends Controller
 {
@@ -15,8 +16,9 @@ class AddattendancesController extends Controller
     public function index()
     {
         //
+        $messages=Contact::latest()->paginate(5);
         $addattendances=addattendance::latest()->paginate(5);
-        return view('teacher.addattendance',compact('addattendances'))
+        return view('teacher.addattendance',compact('addattendances','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

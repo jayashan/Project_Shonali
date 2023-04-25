@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\classdetail;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class ClassdetailsController extends Controller
 {
@@ -15,10 +16,10 @@ class ClassdetailsController extends Controller
     public function index()
     {
         //
-        
- $classdetails=classdetail::latest()->paginate(5);
- return view('admin.classdetail',compact('classdetails'))
-     ->with('i',(request()->input('page',1)-1)*5);
+        $messages=Contact::latest()->paginate(5);
+        $classdetails=classdetail::latest()->paginate(5);
+            return view('admin.classdetail',compact('classdetails','messages'))
+            ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**

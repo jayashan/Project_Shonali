@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\employee;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class EmployeesController extends Controller
 {
@@ -15,8 +16,9 @@ class EmployeesController extends Controller
     public function index()
     {
         //
+        $messages=Contact::latest()->paginate(5);
         $employees=employee::latest()->paginate(5);
-        return view('admin.employee',compact('employees'))
+        return view('admin.employee',compact('employees','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

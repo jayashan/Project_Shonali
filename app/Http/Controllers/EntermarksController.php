@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\entermark;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class EntermarksController extends Controller
 {
@@ -15,8 +16,9 @@ class EntermarksController extends Controller
     public function index()
     {
         //
+        $messages=Contact::latest()->paginate(5);
         $entermarks=entermark::latest()->paginate(5);
-        return view('teacher.entermarks',compact('entermarks'))
+        return view('teacher.entermarks',compact('entermarks','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

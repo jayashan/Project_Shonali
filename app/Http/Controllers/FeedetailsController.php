@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\feedetail;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class FeedetailsController extends Controller
 {
@@ -15,11 +16,11 @@ class FeedetailsController extends Controller
     public function index()
     {
         //
-
+        $messages=Contact::latest()->paginate(5);
         $feedetails=feedetail::latest()->paginate(5);
        
 
-        return view('admin.feedetail',compact('feedetails'))
+        return view('admin.feedetail',compact('feedetails','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

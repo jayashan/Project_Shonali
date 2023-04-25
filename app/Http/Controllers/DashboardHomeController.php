@@ -8,9 +8,8 @@ use App\Models\Student;
 use App\Models\employee;
 use App\Models\stsparent;
 use App\Models\Contact;
-use Illuminate\Support\Facades\DB;
 
-class AdminHomeController extends Controller
+class DashboardHomeController extends Controller
 {
     //
     public function Index()
@@ -19,13 +18,7 @@ class AdminHomeController extends Controller
         $No_Of_Students=Student::count();
         $No_Of_Employee=employee::count();
         $No_Of_Stsparents=stsparent::count();
-        //$messages=Contact::count();
-        // $inbox=DB::table('contacts')->get();
-        $messages=Contact::latest()->paginate(5);
-        
-        
-        
+        $messages=Contact::count();
         return view('admin.index',compact('messages','No_Of_Lectures','No_Of_Students','No_Of_Employee','No_Of_Stsparents'));  
     }
-
 }

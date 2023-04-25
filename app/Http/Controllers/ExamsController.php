@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\exam;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class ExamsController extends Controller
 {
@@ -15,9 +16,9 @@ class ExamsController extends Controller
     public function index()
     {
         //
-
+        $messages=Contact::latest()->paginate(5);
         $exams=exam::latest()->paginate(5);
-        return view('admin.exam',compact('exams'))
+        return view('admin.exam',compact('exams','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

@@ -23,6 +23,7 @@ use App\Http\Controllers\AddexamsController;
 use App\Http\Controllers\AddlessonsController;
 use App\Http\Controllers\EntermarksController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -147,7 +148,7 @@ Route::get('registration', [CustomAuthController::class, 'registration'])->name(
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout'); 
 
-
+Route::resource('DashboardHome',DashboardHomeController::class);
 Route::resource('lectures',LecturesController::class);
 Route::resource('students',StudentsController::class);
 Route::resource('stsparents',StsparentsController::class);
@@ -169,6 +170,7 @@ Route::resource('entermarks',EntermarksController::class);
 
 
 Route::get('admin',[AdminHomeController::class,'Index']);
+
 
 Route::get('generatereport',[LecturesController::class,'report']);
 Route::get('generatereports',[StudentsController::class,'report']);

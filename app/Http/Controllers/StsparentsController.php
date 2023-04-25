@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\stsparent;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class StsparentsController extends Controller
 {
@@ -15,11 +16,11 @@ class StsparentsController extends Controller
     public function index()
     {
         //
-
+        $messages=Contact::latest()->paginate(5);
         $stsparents=stsparent::latest()->paginate(5);
        
 
-        return view('admin.parent',compact('stsparents'))
+        return view('admin.parent',compact('stsparents','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

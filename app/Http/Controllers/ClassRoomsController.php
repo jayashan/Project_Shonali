@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\classroom;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class ClassRoomsController extends Controller
 {
@@ -15,9 +16,9 @@ class ClassRoomsController extends Controller
     public function index()
     {
         //
-
+        $messages=Contact::latest()->paginate(5);
         $classrooms=classroom::latest()->paginate(5);
-        return view('admin.classroom',compact('classrooms'))
+        return view('admin.classroom',compact('classrooms','messages'))
                 ->with('i',(request()->input('page',1)-1)*5);
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\enquiry;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class EnquiriesController extends Controller
 {
@@ -16,10 +17,10 @@ class EnquiriesController extends Controller
     {
         //
 
-                   
- $enquiries=enquiry::latest()->paginate(5);
- return view('admin.enquiry',compact('enquiries'))
-     ->with('i',(request()->input('page',1)-1)*5);
+        $messages=Contact::latest()->paginate(5);         
+        $enquiries=enquiry::latest()->paginate(5);
+            return view('admin.enquiry',compact('enquiries','messages'))
+                ->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\addlesson;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class AddlessonsController extends Controller
 {
@@ -15,8 +16,9 @@ class AddlessonsController extends Controller
     public function index()
     {
         //
+        $messages=Contact::latest()->paginate(5);
         $addlessons=addlesson::latest()->paginate(5);
-        return view('teacher.addlesson',compact('addlessons'))
+        return view('teacher.addlesson',compact('addlessons','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

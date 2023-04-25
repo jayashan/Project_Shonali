@@ -2,8 +2,8 @@
 {
     <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="{{url('/')}}">
-                    <img src="images/icon/pl.png" alt="Cool Admin" />
+                <a href="">
+                    <img src="images/icon/pl.png" alt="" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -14,6 +14,9 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                                     <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                            <li>
+                                                <a href="{{url('/admin')}}">Home</a>
+                                            </li>
                                             <li>
                                                 <a href="{{url('/lectures')}}">Teachers</a>
                                             </li>
@@ -130,8 +133,8 @@
 {
     <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="{{url('/')}}">
-                    <img src="images/icon/pl.png" alt="Cool Admin" />
+                <a href="">
+                    <img src="images/icon/pl.png" alt="" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -139,7 +142,7 @@
                     <ul class="list-unstyled navbar__list">
 
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="{{url('/DashboardHome')}}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                                             <li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\addexam;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class AddexamsController extends Controller
 {
@@ -15,8 +16,9 @@ class AddexamsController extends Controller
     public function index()
     {
         //
+        $messages=Contact::latest()->paginate(5);
         $addexams=addexam::latest()->paginate(5);
-        return view('teacher.addexam',compact('addexams'))
+        return view('teacher.addexam',compact('addexams','messages'))
             ->with('i',(request()->input('page',1)-1)*5);
     }
 

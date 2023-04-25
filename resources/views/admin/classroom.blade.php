@@ -2,10 +2,7 @@
 
 @section('content')
 <div class="page-container">
-        <!-- MAIN MENUEBAR-->
-            @include('includes.admin_main_menuebar')
-        <!-- HMAIN MENUEBAR -->
-
+        
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
