@@ -13,6 +13,7 @@
                                       
                                     </h2>
                                     <a href="{{url('generatereport')}}"class="btn btn-success float-right"> Generate Report</a>
+                                    
                                     <!--<button class="au-btn au-btn-icon au-btn--blue">
                                         <i class="zmdi zmdi-plus" >Add item</button></i>-->
                                 </div>
@@ -23,6 +24,7 @@
                                 <div class="au-card recent-report">
                                     <div class="au-card-inner">
                                         <h3 class="title-2">Add Lecture Details</h3>
+                                     
                                       <form class="row g-3" action="{{route('lectures.store')}}" method="POST">
                                         @csrf
                                           <div class="col-md-6">
@@ -31,7 +33,7 @@
                                           </div>
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">First Name</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="First Name" name="fname">
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="First Name" name="fname" value="{{ old('fname') }}"required>
                                           </div>
                                           <div class="col-md-6">
                                             <label for="inputAddress" class="form-label">Last Name</label>
@@ -86,10 +88,19 @@
                                     </div>
                                 </div>
                             </div>
+                          
+                        <div class="row">                   
                       
-                        <div class="row">
                         <div class="col-8">
+                        
                                 <h2 class="title-1 m-b-25">Lecture Details</h2>
+                                <form class="form-header" action="" method="POST">
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search Teachers" />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <br>
                                 <div class="table-responsive table--no-card m-b-40">
                                     <table class="table table-borderless table-striped table-earning"style="width:40%">
                                         <thead>
@@ -115,7 +126,16 @@
                                                 <td>{{ $lecture->gender }}</td>
                                                 <td>{{ $lecture->address1 }}</td>
                                                 <td>{{ $lecture->address2 }}</td>
-                                                <td></td>
+                                                <td>
+                                                <form action="{{route('lectures.destroy',$lecture->id)}}" method="POST">
+                                                <a class="btn btn-info" href="{{route('lectures.show',$lecture->id)}}">Show</a>
+                                                <a class="btn btn-primary" href="{{route('lectures.edit',$lecture->id)}}">Edit</a>
+                                            
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -125,13 +145,7 @@
                             </div>
 
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

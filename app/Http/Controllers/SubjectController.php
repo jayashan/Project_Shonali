@@ -75,7 +75,8 @@ class SubjectController extends Controller
     public function edit(Subject $subject)
     {
         //
-        return view('includes.subjects.EditSubject',compact('subject'));
+        $messages=Contact::latest()->paginate(5);
+        return view('includes.subjects.EditSubject',compact('subject','messages'));
     }
 
     /**

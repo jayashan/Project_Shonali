@@ -77,6 +77,8 @@ class LecturesController extends Controller
     public function edit(Lecture $lecture)
     {
         //
+        $messages=Contact::latest()->paginate(5);
+        return view('includes.teacher.EditTeacher',compact('lecture','messages'));
     }
 
     /**
@@ -89,6 +91,21 @@ class LecturesController extends Controller
     public function update(Request $request, Lecture $lecture)
     {
         //
+        $request->validate([
+            'lecture_id'=>'required|unique:lectures',
+            'fname'=>'required',
+            'lname'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'gender'=>'required',
+            'address1'=>'required',
+            'address2'=>'required',
+        ]);
+
+        $lecture->update($request->all());
+
+        return redirect()->route('lectures.index')
+                        ->with('success','lecture updated successfully');
     }
 
     /**

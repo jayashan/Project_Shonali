@@ -2,7 +2,7 @@
 {
     <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="">
+                <a href="{{url('/')}}">
                     <img src="images/icon/pl.png" alt="" />
                 </a>
             </div>
@@ -161,10 +161,7 @@
                                                 <a href="">Item 5</a>
                                             </li>
                                     </ul>
-                        </li>
-                        
-                        
-                      
+                             </li>                                          
                             </ul>
                         </li>
                     </ul>
