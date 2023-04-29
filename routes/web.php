@@ -24,6 +24,7 @@ use App\Http\Controllers\AddlessonsController;
 use App\Http\Controllers\EntermarksController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -184,3 +185,6 @@ Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us
 
 Route::get('join-us', [JoinusController::class, 'index']);
 Route::post('join-us', [JoinusController::class, 'store'])->name('join.us.store');
+
+
+Route::get('search',[LecturesController::class, 'search'])->name('lectures.search');

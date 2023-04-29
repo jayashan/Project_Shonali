@@ -127,6 +127,21 @@ class LecturesController extends Controller
        
     }
 
+    public function search(Request $request)
+    {
+        $messages=Contact::latest()->paginate(5);
+        $lectures=\DB::table('lectures');
+        if($request->fname)
+        {
+            $lectures=$lectures->where('fname','LIKE','%'.$request->fname.'%');
+        }
+        $lectures=$lectures->paginate(5);
+        //$search_text=$_GET['query'];
+        //$lectures=Lecture::where('fname','LIKE','%'.$search_text.'%')->get();
+        //$lectures=$lectures->paginate(5);
+        return view('admin.teacher',compact('lectures','messages'));
+    }
+
 
 
 }
