@@ -22,6 +22,8 @@ use App\Http\Controllers\JoinusController;
 use App\Http\Controllers\AddexamsController;
 use App\Http\Controllers\AddlessonsController;
 use App\Http\Controllers\EntermarksController;
+use App\Http\Controllers\HomeController;
+
 
 
 
@@ -40,9 +42,11 @@ use App\Http\Controllers\EntermarksController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+// Route::get('/', function () {
+//     return view('pages.home');
+// });
+
+Route::get('/', HomeController::class);
 
 
 //admin page
@@ -188,3 +192,8 @@ Route::post('join-us', [JoinusController::class, 'store'])->name('join.us.store'
 
 
 Route::get('search',[LecturesController::class, 'search'])->name('lectures.search');
+
+Route::get('/chat', function () {
+    return view('admin.chat');
+});
+

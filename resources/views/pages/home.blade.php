@@ -66,4 +66,5 @@
       <img src="images/icon/why.png" class="img-responsive" style="width:100%" alt="Image">
     
     </div>
+    @include('widgets.chatbot-widget')
 @stop
