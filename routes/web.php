@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoinBaseController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LecturesController;
 use App\Http\Controllers\StudentsController;
@@ -196,4 +197,6 @@ Route::get('search',[LecturesController::class, 'search'])->name('lectures.searc
 Route::get('/chat', function () {
     return view('admin.chat');
 });
+
+Route::get('coinbase', [CoinBaseController::class, 'index']);
 
